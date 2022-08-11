@@ -12,6 +12,10 @@ Ao utilizar o querySelector podemos buscar os elementos no HTML
 */ 
 let buttonPlay = document.querySelector('.play')
 let buttonPause = document.querySelector('.pause')
+let buttonStop = document.querySelector('.stop')
+let buttonSet = document.querySelector('.set')
+let buttonSoundOn = document.querySelector('.sound-on')
+let buttonSoundOff = document.querySelector('.sound-off')
 
 /**
  * Callback
@@ -24,17 +28,30 @@ let buttonPause = document.querySelector('.pause')
 buttonPlay.addEventListener('click', function() {
     buttonPlay.classList.add('hide')
     buttonPause.classList.remove('hide')
+    buttonStop.classList.remove('hide')
+    buttonSet.classList.add('hide')
 })
 
-/**
- * Programação imperativa
- * É quando nós programamos dando ordens passo a passo do que o 
- * software deve fazer, como fizemos com o HTML e CSS
- * 
- * Programação declarativa
- * Não falamos o passo a passo, dizemos apenas o que deve ser feito
- * mas não deixamos claro em qual ordem ou em que momento deve ser
- * executado
- */
+buttonPause.addEventListener('click', function() {
+    buttonPause.classList.add('hide')
+    buttonPlay.classList.remove('hide')
+    buttonStop.classList.add('hide')
+    buttonSet.classList.remove('hide')
+})
 
+buttonStop.addEventListener('click', function() {
+    buttonPlay.classList.remove('hide')
+    buttonPause.classList.add('hide')
+    buttonSet.classList.remove('hide')
+    buttonStop.classList.add('hide')
+})
 
+buttonSoundOff.addEventListener('click', function() {
+    buttonSoundOn.classList.remove('hide')
+    buttonSoundOff.classList.add('hide')
+})
+
+buttonSoundOn.addEventListener('click', function() {
+    buttonSoundOn.classList.add('hide')
+    buttonSoundOff.classList.remove('hide')
+})
