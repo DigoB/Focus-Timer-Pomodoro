@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Temporizador estilo Pomodoro">
+    <meta name="description" content="Temporizador estilo pomodoro">
 
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"> 
+    <script src="./script.js" defer></script>
+    
     <title>Focus Timer - Pomodoro</title>
-</head>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
 <body>
 
     <main>
-        <div id="timer">
-            <span class="minutes">25</span>
-            <span>:</span>
-            <span class="seconds">00</span>
+        <div class="wrapper">
+            
+            <section class="timer">
+                <span class="minutes">25</span>
+                <span>:</span>
+                <span class="seconds">00</span>
+            </section>
+    
+            <section class="controls">
+                <button class="play">
+                    <img src="imagens/play-circle.png" alt="Imagem de um play dentro de um circulo azul">
+                </button>
+                <button class="pause hide">
+                    <img src="imagens/pause-circle.png" alt="Imagem de pause dentro de um circulo azul">
+                </button>
+                <button class="stop hide">
+                    <img src="imagens/stop-circle.png" alt="Imagem de stop dentro de um circulo branco">
+                </button>
+                <button class="set">
+                    <img src="imagens/stopwatch.png" alt="Imagem de um relogio dentro de um circulo branco">
+                </button>
+            </section>
+
         </div>
 
-        <div id="controls">
-            <button class="play">
-                <img src="imagens/play-circle.png">
-            </button>
-            <button class="pause hide">
-                <img src="imagens/pause-circle.png">
-            </button>
-            <button class="stop hide">
-                <img src="imagens/stop-circle.png">
-            </button>
-            <button class="set">
-                <img src="imagens/stopwatch.png">
-            </button>
-        </div>
     </main>
 
     <footer>
-        <button class="sound-on">
-            <img src="imagens/volume-medium.png">
-        </button>
-        <button class="sound-off hide">
-            <img src="imagens/volume-mute.png">
-        </button>
+        <div class="soundOn">
+            <img src="imagens/volume-medium.png" alt="Imagem de um megafone na cor azul reproduzindo som">
+        </div>
+        <div class="soundOff hide">
+            <img src="imagens/volume-mute.png" alt="Imagem de um megafone na cor branca cortado ao meio simbolizando ausencia de som">
+        </div>
     </footer>
     
-    <script src="./script.js"></script>
-
 </body>
 </html>
