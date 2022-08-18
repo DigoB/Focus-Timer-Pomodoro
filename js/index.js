@@ -14,7 +14,6 @@ const {
     secondsDisplay
 } = elements
 
-
 const sound = Sound()
 /* Para fazer injeção de dependencia direto pelo JS, é necessário
     criar um objeto com os parametros exportados no módulo
@@ -31,7 +30,6 @@ const timer = Timer({
     secondsDisplay,
     resetControls: controls.reset
 })
-
 
 buttonPlay.addEventListener('click', function() {
     controls.play()
@@ -53,15 +51,15 @@ buttonStop.addEventListener('click', function() {
 
 
 buttonSoundOn.addEventListener('click', function() {
-    buttonSoundOn.classList.add('hide')
-    buttonSoundOff.classList.remove('hide')
-    sound.bgAudio.play()
+    elements.buttonSoundOn.classList.add('hide')
+    elements.buttonSoundOff.classList.remove('hide')
+    sound.bgAudio.pause()
 })
 
 buttonSoundOff.addEventListener('click', function() {
-    buttonSoundOn.classList.remove('hide')
-    buttonSoundOff.classList.add('hide')
-    sound.bgAudio.pause()
+    elements.buttonSoundOn.classList.remove('hide')
+    elements.buttonSoundOff.classList.add('hide')
+    sound.bgAudio.play()
 })
 
 buttonSet.addEventListener('click', function() {
@@ -74,6 +72,4 @@ buttonSet.addEventListener('click', function() {
 
     timer.updateDisplay(newMinutes, 0)
     timer.updateMinutes(newMinutes)
-
-
 })
