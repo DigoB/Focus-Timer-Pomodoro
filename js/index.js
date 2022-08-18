@@ -1,15 +1,21 @@
 import Timer from "./timer.js"
 import Controls from "./controls.js"
+import { elements } from "./elements.js"
+import Sound from "./sounds.js"
 
-const buttonPlay = document.querySelector('.play')
-const buttonPause = document.querySelector('.pause')
-const buttonStop = document.querySelector('.stop')
-const buttonSet = document.querySelector('.set')
-const buttonSoundOn = document.querySelector('.soundOn')
-const buttonSoundOff = document.querySelector('.soundOff')
-const minutesDisplay = document.querySelector('.minutes')
-const secondsDisplay = document.querySelector('.seconds')
+const {
+    buttonPlay,
+    buttonPause,
+    buttonStop,
+    buttonSet,
+    buttonSoundOn,
+    buttonSoundOff,
+    minutesDisplay,
+    secondsDisplay
+} = elements
 
+
+const sound = Sound()
 /* Para fazer injeção de dependencia direto pelo JS, é necessário
     criar um objeto com os parametros exportados no módulo
 */
@@ -30,27 +36,32 @@ const timer = Timer({
 buttonPlay.addEventListener('click', function() {
     controls.play()
     timer.countDown()
+    sound.pressButton()
 })
 
 buttonPause.addEventListener('click', function() {    
     controls.pause()
     timer.hold()
+    sound.pressButton()
 })
 
 buttonStop.addEventListener('click', function() {
     controls.reset()
     timer.reset()
+    sound.pressButton()
 })
 
 
 buttonSoundOn.addEventListener('click', function() {
     buttonSoundOn.classList.add('hide')
     buttonSoundOff.classList.remove('hide')
+    sound.bgAudio.play()
 })
 
 buttonSoundOff.addEventListener('click', function() {
     buttonSoundOn.classList.remove('hide')
     buttonSoundOff.classList.add('hide')
+    sound.bgAudio.pause()
 })
 
 buttonSet.addEventListener('click', function() {
